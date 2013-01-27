@@ -1,0 +1,35 @@
+<h1>Listing CoC facilities</h1>
+<%= link_to 'Search', search_facilities_path %>
+<table>
+  <tr>
+    <th>Facility</th>
+    <th>Name</th>
+    <th>Address</th>
+    <th>City</th>
+	<th>State</th>
+    <th>Phone</th>
+    <th>Enrolled</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @facilities.each do |facility| %>
+  <tr>
+    <td><%= facility.facility_id %></td>
+    <td><%= facility.name %></td>
+    <td><%= facility.address %></td>
+    <td><%= facility.city %></td>
+	<td><%= facility.state %></td>
+    <td><%= facility.phone %></td>
+    <td><%= (facility.enrolled)?"yes":"no" %></td>
+    <td><%= link_to 'Show', facility %></td>
+    <td><%= link_to 'Edit', edit_facility_path(facility) %></td>
+    <td><%= link_to 'Destroy', facility, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New CoC Facility', new_facility_path %>
